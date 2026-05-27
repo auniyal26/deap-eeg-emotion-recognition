@@ -1,45 +1,28 @@
-# DEAP EEG Emotion Recognition
+# DEAP EEG EDA
 
-## Working Title
+Goal:
+- Inspect raw-loaded DEAP EEG trials corresponding to extreme continuous valence/arousal ratings.
+- Verify whether extreme ratings show visible signal-level differences before further modelling.
 
-**A Reproducible Benchmarking Pipeline for EEG-Based Valence and Arousal Classification Using the DEAP Dataset**
+Outputs:
+- results/tables/raw_extreme_trial_selection.csv
+- results/figures/raw_extreme_trials_eeg_snapshots.png
+- results/figures/raw_extreme_trials_psd.png
 
-## Project Goal
+Key findings:
+- Several extreme-rating cases were selected from the same subject, especially s02.
+- Raw-loaded EEG snapshots showed large amplitude differences and transient spikes in some extreme trials.
+- Mean PSD curves showed large low-frequency power differences across selected trials.
+- These differences may reflect subject-specific signal scale, artifacts, or preprocessing residue rather than affect-specific EEG structure.
 
-This project builds a reproducible benchmarking pipeline for EEG-based binary valence and arousal classification using the DEAP dataset.
+Interpretation:
+- Absolute bandpower features may be dominated by subject-specific amplitude/artifact effects.
+- This helps explain why random-split results appeared better than subject-independent GroupKFold results.
+- Before pursuing more complex affect-space models, normalized feature extraction should be tested.
 
-The focus is not on claiming state-of-the-art performance. Instead, the project emphasizes:
-
-- transparent preprocessing
-- reproducible feature extraction
-- classical baseline models
-- leakage-safe evaluation
-- clear metrics and experiment logs
-- honest limitations
-
-## Claim Boundary
-
-This project does **not** claim to perform clinical emotion detection or mind-reading.
-
-The models are evaluated only as supervised classifiers trained on DEAP self-rating labels. Results should be interpreted as dataset-specific machine learning baselines, not as general-purpose emotion recognition systems.
-
-## Initial Tasks
-
-- Binary valence classification
-- Binary arousal classification
-
-The initial binary split uses:
-
-- low: rating <= 5
-- high: rating > 5
-
-## Planned Evaluation Protocols
-
-1. Subject-dependent/random trial split
-2. Subject-independent grouped evaluation
-3. Leave-one-subject-out evaluation
-
-The grouped and leave-one-subject-out settings are treated as more meaningful tests of generalization.
+Next:
+- Implement log/relative/subject-normalized bandpower features.
+- Rerun regression and EEG-aligned axis experiments using normalized feature tables.
 
 ## Reproducibility
 
