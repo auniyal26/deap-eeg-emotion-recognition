@@ -5,3 +5,11 @@ __pycache__/
 .ipynb_checkpoints/
 .venv/
 .env
+deep-research-report.md
+deep-research-report2.md
+archive/
+data/
+*.dat
+*.npy
+*.pkl
+archive/**/data_notes/**/*.dat

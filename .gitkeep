@@ -1,0 +1,11 @@
+New-Item -ItemType Directory -Force "archive/bad_label_run_2026_05_28/data_notes"
+
+@"
+Broken local DEAP data was archived locally but is not tracked in Git.
+
+Reason:
+- DEAP .dat files are large dataset files and should not be committed.
+- Previous local copy had inverted/transformed valence-arousal labels.
+- Example bad s01 label: [1.29, 1.40, 6.90, 7.83]
+- Expected s01 label: [7.71, 7.60, 6.90, 7.83]
+"@ | Set-Content "archive/bad_label_run_2026_05_28/data_notes/README.md"
