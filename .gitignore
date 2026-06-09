@@ -12,4 +12,4 @@ data/
 *.dat
 *.npy
 *.pkl
-archive/**/data_notes/**/*.dat
+Leakage-Safe Target-Space Audit of Continuous EEG Affect Recognition on DEAP.pdf
